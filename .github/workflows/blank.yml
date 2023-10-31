@@ -37,9 +37,8 @@ jobs:
           path: .      
             
       - name: Build and tag Docker image
-        run:  docker build -t devops-1 .
+        run:  docker build -t nanoanubis/devops-62569 .
 
       - name: Push Docker image to Dockerhub
-        run:  docker push devops-1:latest
-
+        run:  docker push nanoanubis/devops-62569:latest
 
