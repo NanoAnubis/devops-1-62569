@@ -25,7 +25,7 @@ jobs:
       packages: write
     steps:
       - name: Login to DockerHub
-        run:  docker login -u -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_SECRET }}
+        run:  echo ${{ secrets.DOCKERHUB_SECRET }} | docker login --username ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin 
         env:
           DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
           DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_SECRET }}
