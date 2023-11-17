@@ -17,7 +17,7 @@ python3 src/app.py
 
 ## Tasks
 
-### Style
+### Style 
 - Create a new **public** repository and use this one as a template.
 - Add a license
 - Add an .editorconfig
@@ -43,6 +43,9 @@ python3 src/app.py
 - Create a GitHub Actions workflow that builds the Docker image
 - Scan the built Docker image with Trivy as part of the existing workflow
 - Publish the image to your personal DockerHub account
+
+### Additional practice
+- Create a docker compose file to locally test database migrations
 
 ### Bonus
 - Optimize the size of the Docker image. Use a more minimal base image.
