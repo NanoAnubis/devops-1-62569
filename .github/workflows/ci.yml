@@ -53,17 +53,17 @@ jobs:
         run: pip3 install -r src/requirements.txt
       - name: Execute Unit Tests
         run: python3 -m unittest src/app_test.py
-  
+
   git-leaks:
-      name: secrets detection
-      runs-on: ubuntu-latest
-      steps:
-       - uses: actions/checkout@v3
-         with:
-           fetch-depth: 2
-       - uses: gitleaks/gitleaks-action@v2
-         env:
-           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    name: secrets detection
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
+      - uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   database_test:
     needs: [ unittest, flake8, makrdown-lint, editorconfig-checker ]
@@ -138,7 +138,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Login to DockerHub
-      run:  echo ${{ secrets.DOCKERHUB_SECRET }} | docker login --username ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin 
+      run:  echo ${{ secrets.DOCKERHUB_SECRET }} | docker login --username ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
       env:
         DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
         DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_SECRET }}
